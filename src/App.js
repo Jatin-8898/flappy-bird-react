@@ -60,9 +60,16 @@ class Game extends React.Component{
 		}
 		grid[bird.height][bird.position] = 'yellow'
 
+		var towers = [
+			{position:3, height:5, upright:false},
+			{position:5, height:8, upright:true},
+			{position:7, height:6, upright:false},
+		]
+
 		this.state = {
 			grid:grid, 
-			bird:bird
+			bird:bird,
+			towers:towers
 		};
 
 		this.timerID = setInterval(() => {
@@ -70,6 +77,11 @@ class Game extends React.Component{
 			var gridCopy = [];
 			for(let i=0; i<20; i++){
 				gridCopy.push(new Array(30).fill('red'));
+			}
+
+			var towersCopy = this.state.towers.slice();
+			for(let i=0; i<towers.length; i++){
+				gridCopy[towersCopy[i].position][towersCopy[i].height] = 'blue';
 			}
 
 			var birdCopy = this.state.bird;
