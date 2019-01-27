@@ -74,10 +74,15 @@ class Game extends React.Component{
 		this.state = {
 			grid:grid, 
 			bird:bird,
-			towers:towers
+			towers:towers,
+			crashed:false
 		};
 
 		this.timerID = setInterval(() => {
+			if(this.state.crashed){
+				return;
+			}
+
 			/* We just created a fresh new grid here and incremented the bird height by 1  */
 			var gridCopy = [];
 			for(let i=0; i<20; i++){
@@ -109,16 +114,27 @@ class Game extends React.Component{
 
 			var birdCopy = this.state.bird;
 			birdCopy.height++;
-			
+
+			var crashed  = false;
+
+			/* If it goes above or below the screen */
 			if(birdCopy.height > 19 || birdCopy.height < 0){
 				birdCopy.height = 10;
+				crashed = true;
 			}
 
 			for(let i=0; i< 20; i++){
 				/* Coz bird is always in 2 col && if height matches collision is there */
 				if(gridCopy[i][2] == 'blue' && birdCopy.height == i){
 					birdCopy.height = 10;
+					crashed  = true;
 				}
+			}
+
+			if(crashed){
+				this.setState({
+					crashed:true
+				})
 			}
 
 			gridCopy[birdCopy.height][birdCopy.position] = 'yellow'
@@ -132,6 +148,9 @@ class Game extends React.Component{
 		}, 200);
 	}
 	handleClick(){
+		if(this.state.crashed){
+			return;
+		}
 		var birdCopy = this.state.bird;
 		birdCopy.height -= 3;	//Decr by 3 beacuse it should go up 
 		this.setState({bird:birdCopy});
