@@ -147,6 +147,7 @@ class Game extends React.Component{
 			
 		}, 200);
 	}
+
 	handleClick(){
 		if(this.state.crashed){
 			return;
@@ -155,10 +156,18 @@ class Game extends React.Component{
 		birdCopy.height -= 3;	//Decr by 3 beacuse it should go up 
 		this.setState({bird:birdCopy});
 	}
+
+	restart(){
+		this.setState({
+			crashed:false
+		})
+	}
+
 	render(){
 		return(
 			<div onClick = { this.handleClick.bind(this) } >
 				<Grid grid = {this.state.grid}/>
+				{this.state.crashed? <button onClick = { this.restart.bind(this) }>Click Here to Restart</button> : null}
 			</div>
 		);
 	}
