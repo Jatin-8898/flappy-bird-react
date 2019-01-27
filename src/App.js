@@ -66,12 +66,15 @@ class Game extends React.Component{
 		};
 
 		this.timerID = setInterval(() => {
+			/* We just created a fresh new grid here and incremented the bird height by 1  */
 			var gridCopy = [];
 			for(let i=0; i<20; i++){
 				gridCopy.push(new Array(30).fill('red'));
 			}
+
 			var birdCopy = this.state.bird;
 			birdCopy.height++;
+			
 			if(birdCopy.height > 19 || birdCopy.height < 0){
 				birdCopy.height = 10;
 			}
@@ -81,6 +84,7 @@ class Game extends React.Component{
 				grid:gridCopy,
 				bird:birdCopy
 			})
+			
 		}, 200);
 	}
 	render(){
