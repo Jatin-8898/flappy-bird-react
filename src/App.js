@@ -122,9 +122,16 @@ class Game extends React.Component{
 			
 		}, 200);
 	}
+	handleClick(){
+		var birdCopy = this.state.bird;
+		birdCopy.height -= 3;	//Decr by 3 beacuse it should go up 
+		this.setState({bird:birdCopy});
+	}
 	render(){
 		return(
-			<Grid grid = {this.state.grid}/>
+			<div onClick = { this.handleClick.bind(this) } >
+				<Grid grid = {this.state.grid}/>
+			</div>
 		);
 	}
 }
