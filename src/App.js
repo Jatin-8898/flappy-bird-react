@@ -61,9 +61,9 @@ class Game extends React.Component{
 		grid[bird.height][bird.position] = 'yellow'
 
 		var towers = [
-			{position:3, height:5, upright:false},
-			{position:5, height:8, upright:true},
-			{position:7, height:6, upright:false},
+			{position:2, height:3, upright:false},
+			{position:6, height:7, upright:true},
+			{position:8, height:6, upright:false},
 		]
 
 		this.state = {
@@ -82,7 +82,10 @@ class Game extends React.Component{
 			var towersCopy = this.state.towers.slice();
 			for(let i=0; i<towers.length; i++){
 				for(let j=0; j < towersCopy[i].height; j++){
-					gridCopy[j][towersCopy[i].height] = 'blue';
+					if(towersCopy[i].upright)
+						gridCopy[19-j][towersCopy[i].height] = 'blue';
+					else
+						gridCopy[j][towersCopy[i].height] = 'blue';
 				}
 			}
 
