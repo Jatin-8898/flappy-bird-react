@@ -81,7 +81,9 @@ class Game extends React.Component{
 
 			var towersCopy = this.state.towers.slice();
 			for(let i=0; i<towers.length; i++){
-				gridCopy[towersCopy[i].position][towersCopy[i].height] = 'blue';
+				for(let j=0; j < towersCopy[i].height; j++){
+					gridCopy[j][towersCopy[i].height] = 'blue';
+				}
 			}
 
 			var birdCopy = this.state.bird;
