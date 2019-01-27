@@ -18,8 +18,11 @@ function GridCell(){
 }
 
 function GridRow(){
+	var style={
+		display:'flex'
+	}
 	return(
-		<div>
+		<div style={style}>
 			<GridCell/>
 			<GridCell/>
 			<GridCell/>
