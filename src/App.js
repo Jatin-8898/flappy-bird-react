@@ -113,11 +113,20 @@ class Game extends React.Component{
 			if(birdCopy.height > 19 || birdCopy.height < 0){
 				birdCopy.height = 10;
 			}
+
+			for(let i=0; i< 20; i++){
+				/* Coz bird is always in 2 col && if height matches collision is there */
+				if(gridCopy[i][2] == 'blue' && birdCopy.height == i){
+					birdCopy.height = 10;
+				}
+			}
+
 			gridCopy[birdCopy.height][birdCopy.position] = 'yellow'
 			
 			this.setState({
 				grid:gridCopy,
-				bird:birdCopy
+				bird:birdCopy,
+				towers:towersCopy
 			})
 			
 		}, 200);
