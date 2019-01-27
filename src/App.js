@@ -72,7 +72,9 @@ class Game extends React.Component{
 			}
 			var birdCopy = this.state.bird;
 			birdCopy.height++;
-			
+			if(birdCopy.height > 19 || birdCopy.height < 0){
+				birdCopy.height = 10;
+			}
 			gridCopy[birdCopy.height][birdCopy.position] = 'yellow'
 			
 			this.setState({
