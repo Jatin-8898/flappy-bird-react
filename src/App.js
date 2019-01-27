@@ -75,7 +75,8 @@ class Game extends React.Component{
 			grid:grid, 
 			bird:bird,
 			towers:towers,
-			crashed:false
+			crashed:false,
+			score:0
 		};
 
 		this.timerID = setInterval(() => {
@@ -142,7 +143,8 @@ class Game extends React.Component{
 			this.setState({
 				grid:gridCopy,
 				bird:birdCopy,
-				towers:towersCopy
+				towers:towersCopy,
+				score:this.state.score + 1
 			})
 			
 		}, 200);
@@ -159,7 +161,8 @@ class Game extends React.Component{
 
 	restart(){
 		this.setState({
-			crashed:false
+			crashed:false,
+			score:0
 		})
 	}
 
@@ -167,7 +170,7 @@ class Game extends React.Component{
 		return(
 			<div onClick = { this.handleClick.bind(this) } >
 				<Grid grid = {this.state.grid}/>
-				{this.state.crashed? <button onClick = { this.restart.bind(this) }>Click Here to Restart</button> : null}
+				{this.state.crashed? <button onClick = { this.restart.bind(this) }>Click Here to Restart</button> : this.state.score}
 			</div>
 		);
 	}
