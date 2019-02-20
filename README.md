@@ -9,7 +9,7 @@ A very simple and naive flappy bird implementation in React.
 
 ### Clone this Repo
 ```
-git clone https://github.com/Jatin-8898/sass-starter-pack.git
+git clone https://github.com/Jatin-8898/flappy-bird-react.git
 ```
 ### Installation
 
