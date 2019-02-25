@@ -1,6 +1,8 @@
-# Flappy Bird React
+# 💎 Flappy Bird React
 
 A very simple and naive flappy bird implementation in React.
+
+## See it Live [HERE](http://repulsive-humor.surge.sh)
 
 ### Version
 1.0.0
@@ -17,14 +19,11 @@ git clone https://github.com/Jatin-8898/flappy-bird-react.git
 $ npm install
 ```
 
-### Run
+### :ballot_box_with_check: Run
 
 Then go to http://localhost:3000
 
 ```sh
 $ npm start
 ```
-## 💎 Demo Here
-
-[![Demo](http://img.youtube.com/vi/mKlxGCgCm4U/0.jpg)](http://www.youtube.com/watch?v=mKlxGCgCm4U "Demo Video")
 
